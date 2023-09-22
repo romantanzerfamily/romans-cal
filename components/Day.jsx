@@ -1,7 +1,9 @@
 import React from 'react';
 
 function Day(props) {
-  return <div>{props.day.toLocaleDateString('en-GB')}</div>;
+  const day = new Date(props.day);
+
+  return <div className="day">{day.getDate()}</div>;
 }
 
 export default Day;

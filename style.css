@@ -14,9 +14,12 @@ div.app {
 
 div.calendar {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: 1fr repeat(7, 2fr);
 }
-
+div.weekheader {
+  background: white;
+  color: red;
+}
 div.day {
   border: solid 1px white;
   margin: 2px;

@@ -1,12 +1,25 @@
 import React from 'react';
-import Day from './Day';
+import Week from './Week';
+
+Date.prototype.getWeek = function () {
+  var onejan = new Date(this.getFullYear(), 0, 1);
+  return Math.ceil(((this - onejan) / 86400000 + onejan.getDay() + 1) / 7);
+};
+
+
+
+const today = new Date();
+
+// get week number of current date
+const weekFrom = today.getWeek();
+const weeks = [weekFrom, weekFrom + 1, weekFrom + 2];
 
 function Calendar(props) {
-  const days = props.days;
+  const today = new Date();
   return (
     <div className="calendar">
-      {days.map((day) => {
-        return <Day day={day} />;
+      {weeks.map(function (week, index) {
+        return <Week key={index} number={week} year={today.getFullYear()} />;
       })}
     </div>
   );
